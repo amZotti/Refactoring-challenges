@@ -1,8 +1,8 @@
 class Deck
 
+  CARD_VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"]
+  CARD_SUITS = ["C", "D", "H", "S"]
   def initialize
-    @card_values = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"]
-    @card_suits = ["C", "D", "H", "S"]
     @full_deck = []
   end
 
@@ -20,8 +20,8 @@ class Deck
   private
 
   def create_cards
-    @card_suits.each do |suit|
-      @card_values.each do |value|
+    CARD_SUITS.each do |suit|
+      CARD_VALUES.each do |value|
         @full_deck << value + suit
       end
     end

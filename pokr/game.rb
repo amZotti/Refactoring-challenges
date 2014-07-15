@@ -1,6 +1,6 @@
 require './deck.rb'
 
-class StartGame
+class Game
   
   CARDS_PER_HAND = 5
   
@@ -24,7 +24,7 @@ class StartGame
   end
 
   def display_player_header(hand)
-    puts ""
+    puts 
     puts "Player #{hand + 1}"
     puts "--------"
   end
