@@ -7,9 +7,15 @@ class Game < GameRules
     @user = user
     @computer = computer
     @game_result = ""
+    @computer_mode = "default"
+  end
+
+  def set_computer_mode
+    @computer.set_mode
   end
 
   def play_round
+    set_computer_mode
     take_turns
     game_result
     show_game_result
