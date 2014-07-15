@@ -1,48 +1,43 @@
-# Generate filler text
-class Filler
-  def render
-    # Join the words_array with a newline
-    @words_array.join(" ")
+class FakeTextGenerator
+  def initialize(minimum_number_of_words)
+    @sentences = []
+    @minimum_number_of_words = minimum_number_of_words
   end
 
-  # Generate the content
-  def run
-    # wc means word count
-    wc = 0
-    while wc <= @target
-        @words_array << Sentence.new
-  wc += @words_array.last.word_count
+  def generate
+    word_count = 0
+
+    while word_count <= @minimum_number_of_words
+      @sentences << Sentence.new
+      word_count += @sentences.last.word_count
     end
   end
 
-  # Initialize the object
-  def initialize(target)
-    @words_array = []
-    @target = target
+  def render
+    @sentences.join(" ")
   end
 end
 
 class Sentence
   def initialize
-  @number_of_words = (3..8).to_a.sample
-    @content = @number_of_words.times.map { Letters.new.to_s }
+    @word_count = (3..8).to_a.sample
+    @words = @word_count.times.map { Word.new.to_s }
   end
 
-def to_s
-  @content.map {|content|content.join}.join(" ")
-end
+  attr_reader :word_count
 
-  def word_count
-    @number_of_words
-  end
-end
-
-class Letters
   def to_s
-    (1..12).to_a.sample.times.map { ("a".."z").to_a.sample }
+    @words.join(" ")
   end
 end
 
-filler = Filler.new(10)
-filler.run
-puts filler.render
+class Word
+  def to_s
+    (1..12).to_a.sample.times.map { ("a".."z").to_a.sample }.join
+  end
+end
+
+fake_text_generator = FakeTextGenerator.new(10)
+fake_text_generator.generate
+puts fake_text_generator.render
+
