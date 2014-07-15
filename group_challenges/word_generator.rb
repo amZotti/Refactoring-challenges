@@ -19,8 +19,11 @@ class FakeTextGenerator
 end
 
 class Sentence
+  MINIMUM_NUMBER_OF_WORDS = 3
+  MAXIMUM_NUMBER_OF_WORDS = 8
+
   def initialize
-    @word_count = (3..8).to_a.sample
+    @word_count = (MINIMUM_NUMBER_OF_WORDS..MAXIMUM_NUMBER_OF_WORDS).to_a.sample
     @words = @word_count.times.map { Word.new.to_s }
   end
 
@@ -32,12 +35,21 @@ class Sentence
 end
 
 class Word
+  MINIMUM_NUMBER_OF_LETTERS = 1
+  MAXIMUM_NUMBER_OF_LETTERS = 12
+  VALID_CHARACTERS = ("a".."z").to_a
+
   def to_s
-    (1..12).to_a.sample.times.map { ("a".."z").to_a.sample }.join
+    number_of_letters = (MINIMUM_NUMBER_OF_LETTERS..MAXIMUM_NUMBER_OF_LETTERS).to_a.sample
+
+    number_of_letters.times.map { VALID_CHARACTERS.sample }.join
   end
 end
 
-fake_text_generator = FakeTextGenerator.new(10)
+number_of_words = 10
+fake_text_generator = FakeTextGenerator.new(number_of_words)
 fake_text_generator.generate
 puts fake_text_generator.render
+
+
 
