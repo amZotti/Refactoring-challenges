@@ -1,5 +1,4 @@
 require './player.rb'
-
 class UserPlayer < Player
 
   INPUT_MESSAGE_TO_PLAYER =  "Your move? (R/P/S, q to quit)"

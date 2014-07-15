@@ -1,7 +1,6 @@
 require './user_player.rb'
 require './computer_player.rb'
 require './game_rules.rb'
-
 class Game < GameRules
 
   def initialize(user = UserPlayer.new, computer = ComputerPlayer.new)
@@ -12,7 +11,7 @@ class Game < GameRules
 
   def play_round
     take_turns
-    start_turn
+    game_result
     show_game_result
   end
 
@@ -21,7 +20,7 @@ class Game < GameRules
     @computer.new_move
   end
 
-  def start_turn
+  def game_result
     @game_result = compute_winner
   end
 
@@ -30,8 +29,6 @@ class Game < GameRules
     puts "User has #{@game_result} against AI"
   end
 end
-  
-
 
   game = Game.new
   game.play_round

@@ -1,5 +1,4 @@
 require './player.rb'
-
 class ComputerPlayer < Player
 
   def new_move
