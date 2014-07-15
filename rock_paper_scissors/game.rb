@@ -23,7 +23,7 @@ class Game < GameRules
 
   def take_turns
     @user.new_move
-    @computer.new_move
+    @computer.new_move(@user.current_move)
   end
 
   def game_result

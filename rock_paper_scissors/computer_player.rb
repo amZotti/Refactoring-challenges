@@ -8,8 +8,45 @@ class ComputerPlayer < Player
     @mode = -1
   end
 
-  def new_move
-    @current_move = POSSIBLE_MOVES.sample
+  def new_move(users_current_move)
+    @current_move = set_move(users_current_move)
+  end
+
+  def set_move(users_current_move)
+    case @mode
+    when 0
+      default_mode
+    when 1
+      impossible_mode(users_current_move)
+    when 2
+      easy_mode(users_current_move)
+    end
+  end
+
+  def default_mode
+    POSSIBLE_MOVES.sample
+  end
+
+  def impossible_mode(users_current_move)
+    case users_current_move
+    when "R"
+      "P"
+    when "P"
+      "S"
+    when "S"
+      "R"
+    end
+  end
+
+  def easy_mode(users_current_move)
+    case users_current_move
+    when "R"
+      "S"
+    when "S"
+      "P"
+    when "P"
+      "R"
+    end
   end
 
   def set_mode
