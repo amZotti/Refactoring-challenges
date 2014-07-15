@@ -1,5 +1,5 @@
 require './deck.rb'
-require './start_game.rb'
+require './game.rb'
 
 class Play
 
@@ -9,7 +9,7 @@ class Play
   end
 
   def new_game
-    game = StartGame.new(@full_deck)
+    game = Game.new(@full_deck)
     game.deal_cards
   end
 end
