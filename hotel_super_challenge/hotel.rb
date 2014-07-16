@@ -1,5 +1,4 @@
-require 'csv'
-class HotelTemplate
+class Hotel
   def initialize(raw_hotel_data)
     @name = raw_hotel_data[0]
     @city = raw_hotel_data[1]
@@ -9,4 +8,6 @@ class HotelTemplate
   end
 
   attr_reader :name, :city, :phone_number, :number_of_single_beds, :number_of_double_beds
+
+
 end
