@@ -1,10 +1,9 @@
 class HotelSearcher
 
-  MESSAGE = "What property? > "
 
-  def initialize(hotel_data)
+  def initialize(hotels)
     @user_query = ''
-    @hotels = hotel_data[:hotels]
+    @hotels = hotels
   end
 
   def find
@@ -13,7 +12,7 @@ class HotelSearcher
   end 
 
   def query_user_for_hotel_name
-    puts MESSAGE
+    puts "What property? > "
     user_input
   end
 
