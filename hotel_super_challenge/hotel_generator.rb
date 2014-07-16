@@ -1,21 +1,18 @@
 require 'csv'
-
 class HotelGenerator
-  def initialize(csv_text)
-    @csv_text = csv_text
+  def initialize(csv_filename)
+    @csv_filename = csv_filename
   end
 
   def print_out_hotel_names
-    csv = CSV.parse(@csv_text, :headers => true)
-    csv.each do |row|
-    puts row[0]
+    CSV.foreach(@csv_filename,headers: true) do |csv|
+      puts csv[0]
     end
   end
 end
 
 
 FILE_NAME = "hotel.csv"
-csv_text = File.read(FILE_NAME)
 
-hotel = HotelGenerator.new(csv_text)
+hotel = HotelGenerator.new(FILE_NAME)
 hotel.print_out_hotel_names
