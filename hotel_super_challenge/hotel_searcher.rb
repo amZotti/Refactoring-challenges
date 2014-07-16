@@ -1,6 +1,5 @@
 class HotelSearcher
 
-
   def initialize(hotels)
     @user_query = ''
     @hotels = hotels
@@ -27,5 +26,4 @@ class HotelSearcher
   def display_query_results(hotel)
     hotel.exist
   end
-
 end

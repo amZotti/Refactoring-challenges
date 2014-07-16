@@ -1,10 +1,10 @@
 require 'csv'
+
 class HotelGenerator
   def initialize(csv_filename, hotel_template)
     @csv_filename = csv_filename
     @hotels = []
     @hotel_template = hotel_template
-    @hotel_names = []
   end
 
   def generate_hotels()
