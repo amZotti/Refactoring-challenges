@@ -3,13 +3,16 @@ class Hotel
     @name = raw_hotel_data[0]
     @city = raw_hotel_data[1]
     @phone_number = raw_hotel_data[2]
-    @number_of_single_beds = raw_hotel_data[3]
-    @number_of_double_beds = raw_hotel_data[4]
+    @number_of_single_beds = raw_hotel_data[3].to_i
+    @number_of_double_beds = raw_hotel_data[4].to_i
   end
 
   attr_reader :name, :city, :phone_number, :number_of_single_beds, :number_of_double_beds
 
   def exist
-    puts "#{self.name} exist"
+    puts
+    puts "Phone number: #{self.phone_number}"
+    puts "Location: #{self.city}"
+    puts "Number of rooms: #{number_of_single_beds + number_of_double_beds}"
   end
 end

@@ -2,7 +2,6 @@ require './hotel_generator'
 require './hotel'
 require './hotel_searcher'
 require './nil_hotel'
-require './output_results'
 
 FILE_NAME = "hotel.csv"
 hotel_generator = HotelGenerator.new(FILE_NAME, Hotel)
