@@ -9,5 +9,7 @@ class Hotel
 
   attr_reader :name, :city, :phone_number, :number_of_single_beds, :number_of_double_beds
 
-
+  def exist
+    puts "#{self.name} exist"
+  end
 end

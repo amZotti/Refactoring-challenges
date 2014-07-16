@@ -9,7 +9,7 @@ class HotelSearcher
 
   def find
     query_user_for_hotel_name
-    display_query_results(hotel_name_valid)
+    display_query_results(valid_hotel)
   end 
 
   def query_user_for_hotel_name
@@ -21,12 +21,12 @@ class HotelSearcher
     @user_query = gets.chomp
   end
 
-  def hotel_name_valid
-    (@hotels.find { |hotel| hotel.name == @user_query }).name + " exists"|| "Hotel #{@user_query} not found"
+  def valid_hotel
+    @hotels.find { |hotel| hotel.name == @user_query } || NilHotel.new(@user_query)
   end
 
-  def display_query_results(hotel_name)
-    puts hotel_name
+  def display_query_results(hotel)
+    hotel.exist
   end
 
 end
