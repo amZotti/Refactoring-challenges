@@ -16,8 +16,7 @@ class HotelAdapter
   end
 
   def phone_number
-
-    @phone_number.strip
+    @phone_number.to_s.gsub(/[^0-9]/, "")
   end
 
   def number_of_singles
