@@ -1,21 +1,18 @@
 require 'csv'
+require './hotel_adapter'
 
 class HotelGenerator
-  def initialize(csv_filename, hotel_template)
+  def initialize(csv_filename)
     @csv_filename = csv_filename
     @hotels = []
-    @hotel_template = hotel_template
   end
 
   def generate_hotels
     CSV.foreach(@csv_filename,headers: true) do |raw_hotel_data|
-      create_hotel_objects(raw_hotel_data)
+      hotel_adapter = HotelAdapter.new(raw_hotel_data)
+      @hotels << Hotel.new(hotel_adapter)
     end
     @hotels
-  end
-
-  def create_hotel_objects(raw_hotel_data)
-    @hotels << @hotel_template.new(raw_hotel_data)
   end
 end
 
