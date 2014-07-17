@@ -7,7 +7,7 @@ class HotelGenerator
     @hotel_template = hotel_template
   end
 
-  def generate_hotels()
+  def generate_hotels
     CSV.foreach(@csv_filename,headers: true) do |raw_hotel_data|
       create_hotel_objects(raw_hotel_data)
     end

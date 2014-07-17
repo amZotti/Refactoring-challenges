@@ -1,5 +1,4 @@
 class HotelSearcher
-
   def initialize(hotels)
     @user_query = ''
     @hotels = hotels
@@ -20,7 +19,7 @@ class HotelSearcher
   end
 
   def valid_hotel
-    @hotels.find { |hotel| hotel.name == @user_query } || NilHotel.new(@user_query)
+    @hotels.find { |hotel| hotel.name == @user_query } || NullHotel.new(@user_query)
   end
 
   def display_query_results(hotel)
